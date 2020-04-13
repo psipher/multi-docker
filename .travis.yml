@@ -7,7 +7,7 @@ before_install:
 script:
  - docker run -e CI=true raghav/react-test npm test
 
-afterafter_success:
+after_success:
   - docker build -t raghavhub/multi-client ./client
   - docker build -t raghavhub/multi-nginx ./nginx
   - docker build -t raghavhub/multi-worker ./worker

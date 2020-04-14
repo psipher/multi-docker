@@ -1,0 +1,38 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinations" : [
+        {
+            "name": "client",
+            "image": "raghavhub/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "raghavhub/multi-server",
+            "hostname": "api",
+            "essential": false
+
+        },
+        {
+            "name": "worker",
+            "image": "raghavhub/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "raghavhub/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portmappings": [
+                {
+                    "hostport": 80,
+                    "containerPort":80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+
+    ]
+}

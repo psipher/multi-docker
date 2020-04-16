@@ -2,10 +2,10 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t raghav/react-test -f ./client/Dockerfile.dev ./client 
+  - docker build -t raghavhub/react-test -f ./client/Dockerfile.dev ./client 
 
 script:
- - docker run -e CI=true raghav/react-test npm test
+ - docker run -e CI=true raghavhub/react-test npm test
 
 after_success:
   - docker build -t raghavhub/multi-client ./client
